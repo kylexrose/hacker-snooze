@@ -39,7 +39,7 @@ function postComments(element, setNumber){
                             <div class="commentText">${commentsArrayOfArrays[setNumber][i].text}</div>
                         </div>`
     }
-    commentsHTML += `<div class="commentArrows"><span class="back">back</span><span class="forward">forward</span></div>`
+    commentsHTML += `<div class="commentArrows"><span class="back">&#8592;</span><span class="forward">&#8594;</span></div>`
     newElement.innerHTML = commentsHTML;
     element.appendChild(newElement);
     element.querySelector(".back").addEventListener('click', () =>{

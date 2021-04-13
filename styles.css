@@ -104,6 +104,7 @@ nav{
 
 .commentArrows{
     height: 25px;
+    font-size: 20pt;
     background-color: honeydew;
     display: flex;
     justify-content: space-between;
