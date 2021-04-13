@@ -30,11 +30,15 @@ function postStory(story){
                             </div>`
     newElement.querySelector(".subHeading .hide").addEventListener('click', ((e) => hide(e.path[2])))
     newElement.querySelector(".subHeading .comments").addEventListener('click', ((e) => {
-        const commentContainer = e.path[1].querySelector(".commentContainer");
-        if(commentContainer){
+        let currentCommentContainer = document.querySelector(".commentContainer");
+        if(e.path[1].querySelector(".commentContainer")){
             console.log("comments");
-            e.path[1].removeChild(commentContainer);
+            currentCommentContainer.remove();
         }else{
+            if(currentCommentContainer){
+                console.log(currentCommentContainer)
+                currentCommentContainer.remove();
+            } 
             getComments(e.path[1], story.kids)
         }
     }))
