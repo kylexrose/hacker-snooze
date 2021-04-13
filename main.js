@@ -28,7 +28,7 @@ function postStory(story){
                             <div class="subHeading">
                                 ${story.score} points by ${story.by} | <span class="hide">hide</span> <span class="comments">${commentCount}<span>
                             </div>`
-    newElement.querySelector(".subHeading .hide").addEventListener('touchstart', ((e) => hide(e.path[2])))
+    newElement.querySelector(".subHeading .hide").addEventListener('click', ((e) => hide(e.path[2])))
     newElement.querySelector(".subHeading .comments").addEventListener('click', ((e) => {
         let currentCommentContainer = document.querySelector(".commentContainer");
         if(e.path[1].querySelector(".commentContainer")){
