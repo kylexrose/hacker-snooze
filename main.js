@@ -28,10 +28,10 @@ function postStory(story){
                             <div class="subHeading">
                                 ${story.score} points by ${story.by} | <span class="hide">hide</span> <span class="comments">${commentCount}<span>
                             </div>`
-    newElement.querySelector(".subHeading .hide").addEventListener('click', ((e) => hide(e.path[2])))
+    newElement.querySelector(".subHeading .hide").addEventListener('click', ((e) => hide(newElement)))
     newElement.querySelector(".subHeading .comments").addEventListener('click', ((e) => {
         let currentCommentContainer = document.querySelector(".commentContainer");
-        if(e.path[1].querySelector(".commentContainer")){
+        if(newElement.querySelector(".commentContainer")){
             console.log("comments");
             currentCommentContainer.remove();
         }else{
@@ -39,7 +39,7 @@ function postStory(story){
                 console.log(currentCommentContainer)
                 currentCommentContainer.remove();
             } 
-            getComments(e.path[1], story.kids)
+            getComments(newElement, story.kids)
         }
     }))
     
