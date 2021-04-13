@@ -77,10 +77,12 @@ nav{
 .commentContainer{
     width: 100%;
     height: auto;
+    margin-top: 5px;
     background-color: wheat;
     position: relative;
     display: flex;
     flex-direction: column;
+    box-shadow: 0 0 6px;
     z-index: 0;
 }
 
