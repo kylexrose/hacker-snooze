@@ -11,6 +11,7 @@ nav{
     height: 125px;
     background-color: rgb(50,71,111);
     display: flex;
+    font-family: 'Dela Gothic One', cursive;
     color:white;
     box-shadow: 0 0 5px;
 }
@@ -53,6 +54,7 @@ nav{
 }
 
 .title a{
+    font-family: 'Open Sans Condensed', sans-serif;
     color: black;
     text-decoration: none;
 }
@@ -65,4 +67,47 @@ nav{
     font-size: 10pt;
     margin-left: 5px;
     color:darkslategray;
+}
+
+.subHeading span:hover{
+    cursor: pointer;
+}
+
+.commentContainer{
+    width: 100%;
+    height: auto;
+    background-color: wheat;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.comment{
+    border-bottom: 1px solid gray;
+    padding: 4px;
+    background-color: honeydew;
+    display: flex;
+}
+
+.postedBy{
+    color: blueviolet;
+    margin-right: 5px;
+}
+
+.commentText{
+    color:black;
+    height: auto;
+    overflow-wrap: normal;
+}
+
+.commentArrows{
+    height: 25px;
+    background-color: honeydew;
+    display: flex;
+    justify-content: space-between;
+    padding: 5px;
+}
+
+.hideComments{
+    display: none;
 }

@@ -4,8 +4,7 @@ const apiTop500 = "https://hacker-news.firebaseio.com/v0/topstories.json?print=p
 fetch(apiTop500)
     .then((res) => res.json())
     .then((data) => {
-        data = data.slice(0, 99);
-        console.log(data)
+        data = data.slice(0, 100);
         for(let id of data){
             fetchStory(id);
         }
@@ -21,13 +20,29 @@ function fetchStory(storyID){
 }
 
 function postStory(story){
+    let url = (story.url) ? story.url : "#";
+    let commentCount = (story.kids) ? `| ${story.kids.length} comments`: "";
+    const newElement = document.createElement("div");
+    newElement.classList.add("storyContainer");
+    newElement.innerHTML = `<h2 class="title"><a href=${url} target="_blank">${story.title}</a></h2>
+                            <div class="subHeading">
+                                ${story.score} points by ${story.by} | <span class="hide">hide</span> <span class="comments">${commentCount}<span>
+                            </div>`
+    newElement.querySelector(".subHeading .hide").addEventListener('click', ((e) => hide(e.path[2])))
+    newElement.querySelector(".subHeading .comments").addEventListener('click', ((e) => {
+        const commentContainer = e.path[1].querySelector(".commentContainer");
+        if(commentContainer){
+            console.log("comments");
+            e.path[1].removeChild(commentContainer);
+        }else{
+            getComments(e.path[1], story.kids)
+        }
+    }))
     
-    let html = `<div class="storyContainer">
-                    <h2 class="title"><a href=${story.url}>${story.title}</a></h2>
-                    <div class="subHeading">
-                        ${story.score} points by ${story.by} 3 hours ago | hide | ${story.kids.length} comments
-                    </div>
-                </div>`
+    main.appendChild(newElement);
 
-    main.innerHTML += html;
+}
+
+function hide(element){
+    element.style.display = "none";
 }
